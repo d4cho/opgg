@@ -41,7 +41,7 @@ app.get('/summoner/:summonerName', function (req, res) {
       const level = response.data['summonerLevel'];
       const accountId = response.data['accountId'];
       const summonerId = response.data['id'];
-      console.log(response);
+      // console.log(response);
       axios
         .get(
           `https://na1.api.riotgames.com/lol/match/v4/matchlists/by-account/${accountId}?api_key=${RIOT_API_KEY}`,
