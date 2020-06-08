@@ -1,0 +1,47 @@
+.parent {
+  display: flex;
+
+  height: 50px;
+  width: 180px;
+}
+
+.portrait {
+  display: block;
+  max-width: 36px;
+  max-height: 36px;
+  border-radius: 50%;
+}
+
+.level {
+  position: relative;
+  left: -38px;
+  bottom: -25px;
+  width: 15px;
+  height: 15px;
+  color: #ddd;
+  font-size: 10px;
+  font-family: 'Tahoma';
+  text-align: center;
+  line-height: 15px;
+  background-color: black;
+  opacity: 90%;
+  z-index: 1;
+  border-radius: 50%;
+}
+
+.img {
+  display: block;
+  max-width: 20px;
+  max-height: 20px;
+  border-radius: 2px;
+  margin-left: -10px;
+}
+
+.name {
+  position: relative;
+  color: #555e5e;
+  font-size: 12px;
+  text-decoration: none;
+  margin-left: 10px;
+  top: 10px;
+}

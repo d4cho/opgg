@@ -1,0 +1,49 @@
+.parent {
+  position: relative;
+  border: 1px solid #c6cbcb;
+  width: 100%;
+  color: #879292;
+  background-color: #f2f2f2;
+  padding: 8px 0;
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 30px;
+}
+.info {
+  position: relative;
+  padding: 20px 0px;
+}
+
+.img {
+  position: relative;
+  vertical-align: middle;
+  width: 120px;
+  height: 124px;
+  text-align: center;
+  padding: 10px 20px;
+}
+
+.type {
+  position: relative;
+  font-size: 12px;
+  padding: 3px;
+}
+
+.tier {
+  position: relative;
+  font-size: 16px;
+  padding: 3px;
+  font-weight: bold;
+  color: #1f8ecd;
+}
+
+.stats {
+  position: relative;
+  font-size: 13px;
+  padding: 3px;
+}
+.winRate {
+  position: relative;
+  font-size: 13px;
+  padding: 3px;
+}

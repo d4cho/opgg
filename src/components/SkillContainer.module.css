@@ -1,0 +1,44 @@
+.img {
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
+}
+
+.tooltipcontainer {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  position: absolute;
+  z-index: 1;
+
+  width: 320px;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -160px;
+  padding: 10px;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+  border: 1px solid darkgray;
+}
+
+.tooltipcontainer:hover .tooltiptext {
+  visibility: visible;
+}
+
+.key {
+  z-index: 1;
+  position: relative;
+  top: -24px;
+  left: 20px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 22px;
+  height: 18px;
+}

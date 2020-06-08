@@ -1,0 +1,13 @@
+.parent {
+  position: relative;
+  display: flex;
+  padding-left: 10px;
+}
+
+.parent img {
+  display: block;
+  max-width: 25px;
+  max-height: 25px;
+  border-radius: 3px;
+  padding: 1px;
+}

@@ -1,0 +1,45 @@
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-left: 20px;
+  padding: 10px 0 0 0;
+}
+
+.buttons button {
+  border: none;
+  float: left;
+  color: black;
+  text-decoration: none;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  display: block;
+  background-color: white;
+  padding: 15px 7px;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+}
+
+.buttons button:hover {
+  border-bottom: 2px solid #5383e8;
+}
+
+.searchbar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 9px 9px 10px 10px;
+}
+
+.searchbar input {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 193px;
+  height: 36px;
+  background-color: #f7f7f7;
+  color: #9b9b9b;
+  border: none;
+  box-sizing: border-box;
+  font-size: 12px;
+  line-height: 15px;
+  text-indent: 5px;
+}

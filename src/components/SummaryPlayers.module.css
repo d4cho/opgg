@@ -1,0 +1,28 @@
+.parent {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 5px 0 0 0;
+  width: 320px;
+  max-height: 140px;
+}
+
+.player {
+  display: flex;
+  padding: 2px 0 0 0;
+}
+
+.player a {
+  text-decoration: none;
+}
+
+.player img {
+  max-width: 22px;
+  max-height: 22px;
+}
+
+.name {
+  font-size: 14px;
+  color: #555555;
+  padding: 0 0 0 3px;
+}

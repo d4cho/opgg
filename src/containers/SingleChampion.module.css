@@ -1,0 +1,11 @@
+.test {
+  position: relative;
+  top: 90px;
+  padding: 0px 0 120px 0;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+  width: 1366px;
+  background-color: rgb(131, 131, 131);
+}

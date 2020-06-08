@@ -1,0 +1,13 @@
+.table {
+  color: #555e5e;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.header {
+  background-color: white;
+}
+
+.header tr {
+  height: 30px;
+}

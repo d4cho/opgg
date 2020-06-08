@@ -1,0 +1,25 @@
+.error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #5383e8;
+  padding: 60px 0 120px 0;
+}
+
+.error img {
+  padding: 0px;
+  border-radius: 8px;
+  max-width: 100%;
+  height: auto;
+}
+
+.error h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 75px;
+}
+
+.error h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 50px;
+}

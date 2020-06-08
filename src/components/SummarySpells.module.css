@@ -1,0 +1,33 @@
+.parent {
+  width: 100px;
+  padding: 20px 0 0 0;
+}
+
+.portrait {
+  border-radius: 50%;
+  max-width: 46px;
+  max-height: 46px;
+}
+
+.spell {
+  border-radius: 10%;
+  max-width: 22px;
+  max-height: 22px;
+  padding: 0 0 0 10px;
+}
+
+.row {
+  display: flex;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-size: 14px;
+  color: #555555;
+  text-align: center;
+  padding: 10px;
+}

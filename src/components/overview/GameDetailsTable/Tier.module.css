@@ -1,0 +1,10 @@
+.tier {
+  color: #555e5e;
+  font-size: 12px;
+  text-align: center;
+  position: relative;
+  top: 10px;
+
+  height: 40px;
+  width: 120px;
+}

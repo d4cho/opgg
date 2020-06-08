@@ -1,0 +1,22 @@
+.parent {
+  text-align: center;
+  width: 90px;
+  padding: 25px 0 0 0;
+}
+
+.level {
+  color: #555555;
+  font-size: 14px;
+}
+
+.cs {
+  color: #555555;
+  font-size: 14px;
+  padding: 5px 0 0 0;
+}
+
+.kp {
+  color: red;
+  font-size: 14px;
+  padding: 5px 0 0 0;
+}

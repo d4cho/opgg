@@ -1,0 +1,11 @@
+.champions {
+  position: relative;
+  top: 100px;
+  padding: 0px 0 120px 0;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+  width: 588px;
+  background-color: rgb(238, 238, 238);
+}

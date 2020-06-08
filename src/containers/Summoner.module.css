@@ -1,0 +1,23 @@
+.parent {
+  position: relative;
+  top: 89px;
+  width: 100%;
+  height: 2000px;
+  font-size: 20px;
+  background-color: rgb(238, 238, 238);
+  color: #5383e8;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.parent img {
+  height: 100px;
+  width: 100px;
+}
+
+.loading {
+  z-index: 1;
+  position: relative;
+  top: 89px;
+}

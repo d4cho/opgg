@@ -1,0 +1,21 @@
+.parent {
+  position: relative;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+}
+
+.parent img {
+  max-width: 30px;
+  max-height: 30px;
+  padding-right: 5px;
+}
+
+.child {
+  position: relative;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding-right: 15px;
+}
