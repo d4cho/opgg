@@ -29,7 +29,9 @@ const SummaryKDA = (props) => {
         className={
           classes.kda
         }>{`${props.kills} / ${props.deaths} / ${props.assists}`}</div>
-      <div className={classes.ratio}>{`${kdaRatio}:1 KDA`}</div>
+      <div className={classes.ratio}>
+        {props.deaths === 0 ? 'Perfect' : `${kdaRatio}:1 KDA`}
+      </div>
       <div className={multikills && classes.multikills}>{multikills}</div>
     </div>
   );

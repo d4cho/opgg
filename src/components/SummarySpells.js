@@ -4,7 +4,7 @@ import spellData from '../data/summonerSpellsData';
 import classes from './SummarySpells.module.css';
 
 const SummarySpells = (props) => {
-  // console.log(spellData);
+  console.log(props.champion);
 
   const img = championData.find((item) => item.key === props.champion).img;
   const name = championData.find((item) => item.key === props.champion).name;

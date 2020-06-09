@@ -2,8 +2,31 @@ import React from 'react';
 import classes from './RankInfo.module.css';
 
 const RankInfo = (props) => {
-  const [type, tier, rank, LP, wins, losses] = props.children;
+  let [type, tier, rank, LP, wins, losses] = props.children;
   const winRate = Math.round((wins / (wins + losses)) * 100);
+
+  switch (rank) {
+    case 'I':
+      rank = 1;
+      break;
+
+    case 'II':
+      rank = 2;
+      break;
+
+    case 'III':
+      rank = 3;
+      break;
+
+    case 'IV':
+      rank = 4;
+      break;
+  }
+
+  if (tier === 'MASTER' || tier === 'GRANDMASTER') {
+    rank = null;
+  }
+
   return (
     <div className={classes.parent}>
       <div>

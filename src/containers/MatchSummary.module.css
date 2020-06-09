@@ -1,7 +1,5 @@
 .parentVictory {
-  position: relative;
   width: 850px;
-  height: 130px;
   display: flex;
   font-family: Arial, Helvetica, sans-serif;
   background-color: #a3cfec;
@@ -9,6 +7,7 @@
   margin-left: 30px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 10px;
 }
 
 .parentVictory button {
@@ -24,9 +23,7 @@
 }
 
 .parentDefeat {
-  position: relative;
   width: 850px;
-  height: 130px;
   display: flex;
   font-family: Arial, Helvetica, sans-serif;
   background-color: #e2b6b3;
@@ -35,6 +32,7 @@
   display: flex;
   display: flex;
   flex-direction: column;
+  margin-bottom: 10px;
 }
 
 .parentDefeat button {

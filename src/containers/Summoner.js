@@ -17,11 +17,13 @@ class Summoner extends Component {
     userName: 'test',
     profileIcon: 0,
     level: 0,
-    matchInfo: {
-      championPlayed: 0,
-      gameId: 0,
-      queue: 0
-    },
+    matchInfo: [
+      {
+        championPlayed: 0,
+        gameId: 0,
+        queue: 0
+      }
+    ],
     img: 'null',
     soloQueueType: 'Ranked Solo',
     soloTier: 'unranked',
@@ -117,6 +119,17 @@ class Summoner extends Component {
 
   render() {
     // console.log(championData);
+
+    const matchSummary = this.state.matchInfo.map((match) => {
+      return (
+        <MatchSummary
+          key={match.gameId}
+          userName={this.state.userName}
+          matchInfo={match}
+        />
+      );
+    });
+
     if (!this.state.isLoading) {
       return (
         <div className={classes.parent}>
@@ -149,10 +162,13 @@ class Summoner extends Component {
                   {this.state.flexLosses}
                 </RankInfo>
               </RankedContainer>
-              <MatchSummary
+              <div className={classes.matchSummaryContainer}>
+                {matchSummary}
+              </div>
+              {/* <MatchSummary
                 userName={this.state.userName}
                 matchInfo={this.state.matchInfo}
-              />
+              /> */}
             </>
           ) : this.state.championTabClicked ? (
             <div>sorry, under construction</div>

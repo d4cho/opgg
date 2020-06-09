@@ -21,3 +21,8 @@
   position: relative;
   top: 89px;
 }
+
+.matchSummaryContainer {
+  display: flex;
+  flex-direction: column;
+}

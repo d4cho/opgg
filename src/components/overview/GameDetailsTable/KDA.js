@@ -3,7 +3,11 @@ import classes from './KDA.module.css';
 
 const KDA = (props) => {
   const ratio = ((props.kills + props.assists) / props.deaths).toFixed(2);
-  const killParticipation = Math.round((props.kills / props.totalKills) * 100);
+  const killParticipation =
+    props.totalKills === 0
+      ? 0
+      : Math.round((props.kills / props.totalKills) * 100);
+
   return (
     <div className={classes.kda}>
       <div className={classes.bold}>
