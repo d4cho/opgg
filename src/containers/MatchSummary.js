@@ -12,102 +12,6 @@ import classes from './MatchSummary.module.css';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import Overview from './Overview';
 
-// data = {
-//   gameDuration: 1108,
-//   participantInfo: [
-//     {
-//       participantId: 1,
-//       summonerName: 'Sy7777777ˇ',
-//       participantIdCheck: 1,
-//       championId: 69,
-//       kills: 2
-//     },
-//     {
-//       participantId: 2,
-//       summonerName: '             Tcº',
-//       participantIdCheck: 2,
-//       championId: 39,
-//       kills: 4
-//     },
-//     {
-//       participantId: 3,
-//       summonerName: 'Sweet GirI',
-//       participantIdCheck: 3,
-//       championId: 21,
-//       kills: 0
-//     },
-//     {
-//       participantId: 4,
-//       summonerName: 'Chas3',
-//       participantIdCheck: 4,
-//       championId: 35,
-//       kills: 4
-//     },
-//     {
-//       participantId: 5,
-//       summonerName: 'awqfr312tgfr',
-//       participantIdCheck: 5,
-//       championId: 43,
-//       kills: 0
-//     },
-//     {
-//       participantId: 6,
-//       summonerName: 'Viizay',
-//       participantIdCheck: 6,
-//       championId: 236,
-//       kills: 1
-//     },
-//     {
-//       participantId: 7,
-//       summonerName: 'Familiar',
-//       participantIdCheck: 7,
-//       championId: 30,
-//       kills: 1
-//     },
-//     {
-//       participantId: 8,
-//       summonerName: 'Cplus',
-//       participantIdCheck: 8,
-//       championId: 81,
-//       kills: 1
-//     },
-//     {
-//       participantId: 9,
-//       summonerName: 'KINGSLAYER RYKEN',
-//       participantIdCheck: 9,
-//       championId: 85,
-//       kills: 3
-//     },
-//     {
-//       participantId: 10,
-//       summonerName: 'j71101',
-//       participantIdCheck: 10,
-//       championId: 432,
-//       kills: 2
-//     }
-//   ],
-//   playerInfo: {
-//     assists: 4,
-//     championId: 81,
-//     deaths: 1,
-//     item0: 0,
-//     item1: 1055,
-//     item2: 1036,
-//     item3: 3025,
-//     item4: 3042,
-//     item5: 3158,
-//     item6: 3363,
-//     kills: 1,
-//     largestMultiKill: 3,
-//     neutralMinionsKilled: 0,
-//     spell1Id: 7,
-//     spell2Id: 4,
-//     totalMinionsKilled: 147,
-//     win: true
-//   },
-//   queue: 420
-// };
-
 class MatchSummary extends Component {
   state = {
     data: {},
@@ -115,7 +19,6 @@ class MatchSummary extends Component {
     showOverview: false
   };
   componentDidMount() {
-    console.log(this.props.matchInfo);
     axios
       .post(
         `http://localhost:8080/summoner/${this.props.userName}/matchsummary`,

@@ -15,6 +15,7 @@ import './index.css';
 function App() {
   return (
     <>
+      <div>application mode {process.env.NODE_ENV}</div>
       <Topbar />
       <Navbar />
       <Switch>
