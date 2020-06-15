@@ -20,7 +20,7 @@ app.use('/api', function (req, res, next) {
     if (!apiKey) {
         return res.status(401).json({
             apiKey,
-            error: 'api_key_missing',
+            error: 'api_key_missing' + apiKey,
             detail: apiKey
         });
     }
