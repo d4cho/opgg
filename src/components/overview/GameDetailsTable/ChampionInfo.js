@@ -2,6 +2,7 @@ import React from 'react';
 import championData from '../../../data/championData';
 import spellData from '../../../data/summonerSpellsData';
 import classes from './ChampionInfo.module.css';
+import { API_BASE_URL } from '../../../App';
 
 const ChampionInfo = (props) => {
   console.log(championData);
@@ -13,7 +14,7 @@ const ChampionInfo = (props) => {
   const spell2Img = spellData.find((item) => item.key === props.spell2Id).img;
   return (
     <div className={classes.parent}>
-      <a href={`http://localhost:3000/champions/${champName}`} target='_blank'>
+      <a href={`${API_BASE_URL}/champions/${champName}`} target='_blank'>
         <img
           className={classes.portrait}
           src={`/images/portrait/${champImg}`}
@@ -34,7 +35,7 @@ const ChampionInfo = (props) => {
         />
       </div>
       <a
-        href={`http://localhost:3000/summoner/${props.summonerName}`}
+        href={`${API_BASE_URL}/summoner/${props.summonerName}`}
         target='_blank'>
         <div className={classes.name}>{props.summonerName}</div>
       </a>

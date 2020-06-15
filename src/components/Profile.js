@@ -8,7 +8,6 @@ const Profile = (props) => {
         className={classes.img}
         src={props.img}
         alt={props.alt}
-        // onError="this.onerror=null;this.src='http://localhost:3000/images/profileIcon/0.png';"
       />
       <div className={classes.name}>{props.userName}</div>
       <div className={classes.level}>{props.level}</div>

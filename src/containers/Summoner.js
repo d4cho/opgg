@@ -8,6 +8,7 @@ import RankInfo from '../components/RankInfo';
 import MatchSummary from './MatchSummary';
 
 import axios from 'axios';
+import { API_BASE_URL } from '../App';
 
 class Summoner extends Component {
   state = {
@@ -52,7 +53,7 @@ class Summoner extends Component {
 
   getdata = () => {
     axios
-      .get(`http://localhost:8080/summoner/${this.props.match.params.userName}`)
+      .get(`${API_BASE_URL}/summoner/${this.props.match.params.userName}`)
       .then((response) => {
         console.log('response', response);
         const userName = response.data['userName'];

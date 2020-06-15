@@ -8,9 +8,11 @@ import SummaryKDA from '../components/SummaryKDA';
 import SummaryStats from '../components/SummaryStats';
 import SummaryItems from '../components/SummaryItems';
 import SummaryPlayers from '../components/SummaryPlayers';
+import {API_BASE_URL} from '../App';
 import classes from './MatchSummary.module.css';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import Overview from './Overview';
+
 
 class MatchSummary extends Component {
   state = {
@@ -21,7 +23,7 @@ class MatchSummary extends Component {
   componentDidMount() {
     axios
       .post(
-        `http://localhost:8080/summoner/${this.props.userName}/matchsummary`,
+        `${API_BASE_URL}/summoner/${this.props.userName}/matchsummary`,
         this.props.matchInfo
       )
       .then((res) => {

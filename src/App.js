@@ -9,13 +9,14 @@ import Champions from './containers/Champions';
 import SingleChampion from './containers/SingleChampion';
 import Summoner from './containers/Summoner';
 import Error from './containers/Error';
+export const API_BASE_URL =
+  process.env.NODE_ENV === 'production' ? '/api' : 'http://localhost:8080/api';
 
 import './index.css';
 
 function App() {
   return (
     <>
-      <div>application mode {process.env.NODE_ENV}</div>
       <Topbar />
       <Navbar />
       <Switch>

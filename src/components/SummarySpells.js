@@ -2,9 +2,9 @@ import React from 'react';
 import championData from '../data/championData';
 import spellData from '../data/summonerSpellsData';
 import classes from './SummarySpells.module.css';
+import { API_BASE_URL } from '../App';
 
 const SummarySpells = (props) => {
-  console.log(props.champion);
 
   const img = championData.find((item) => item.key === props.champion).img;
   const name = championData.find((item) => item.key === props.champion).name;
@@ -14,7 +14,7 @@ const SummarySpells = (props) => {
   return (
     <div className={classes.parent}>
       <div className={classes.row}>
-        <a href={`http://localhost:3000/champions/${name}`} target='_blank'>
+        <a href={`${API_BASE_URL}/champions/${name}`} target='_blank'>
           <img
             src={`/images/portrait/${img}`}
             alt={name}

@@ -4,6 +4,7 @@ import ObjectivesContainer from '../components/overview/ObjectivesContainer';
 import loading from '../images/loading-arrow.gif';
 import GameDetails from '../components/overview/GameDetailsTable/GameDetails';
 import classes from './Overview.module.css';
+import {API_BASE_URL} from '../App';
 
 class Overview extends Component {
   state = {
@@ -18,7 +19,7 @@ class Overview extends Component {
   componentDidMount() {
     axios
       .get(
-        `http://localhost:8080/summoner/${this.props.userName}/matchoverview`,
+        `${API_BASE_URL}/${this.props.userName}/matchoverview`,
         {
           params: {
             gameId: this.props.gameId

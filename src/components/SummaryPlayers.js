@@ -1,11 +1,9 @@
 import React from 'react';
 import championData from '../data/championData';
 import classes from './SummaryPlayers.module.css';
+import {API_BASE_URL} from '../App'
 
 const SummaryPlayers = (props) => {
-  console.log(championData);
-
-  console.log(props.playerInfo);
   let playersArr = props.playerInfo;
   const players = playersArr.map((item) => {
     let img = championData.find((el) => el.key === item.championId).img;
@@ -13,7 +11,7 @@ const SummaryPlayers = (props) => {
       <div key={item.participantId} className={classes.player}>
         <img src={`/images/portrait/${img}`} alt={img} />
         <a
-          href={`http://localhost:3000/summoner/${item.summonerName}`}
+          href={`${API_BASE_URL}/summoner/${item.summonerName}`}
           target='_blank'>
           <div className={classes.name}>{item.summonerName}</div>
         </a>
