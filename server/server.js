@@ -335,6 +335,7 @@ app.get('/api/summoner/:summonerName/matchoverview', function (req, res) {
 app.post('/internal/apikey', function (req, res) {
     const {apiKey} = req.body;
     app.set(API_KEY, apiKey);
+    return res.status(201).json({ apiKey });
 });
 
 app.listen(process.env.PORT || 8080);
