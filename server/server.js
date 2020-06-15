@@ -332,7 +332,7 @@ app.get('/api/summoner/:summonerName/matchoverview', function (req, res) {
     });
 });
 
-app.post('/api/apikey', function (req, res) {
+app.post('/internal/apikey', function (req, res) {
     const {apiKey} = req.body;
     app.set(API_KEY, apiKey);
 });
