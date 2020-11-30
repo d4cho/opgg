@@ -4,7 +4,6 @@ import spellData from '../../../data/summonerSpellsData';
 import classes from './ChampionInfo.module.css';
 
 const ChampionInfo = (props) => {
-  console.log(championData);
   const champName = championData.find((item) => item.key === props.championId)
     .name;
   const champImg = championData.find((item) => item.key === props.championId)

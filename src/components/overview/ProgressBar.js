@@ -3,8 +3,6 @@ import classes from './ProgressBar.module.css';
 import Filler from './Filler';
 
 const ProgressBar = (props) => {
-  console.log(props.percentage);
-
   let background1 = 'red';
   let background2 = 'blue';
   if (props.winTeam === 1) {

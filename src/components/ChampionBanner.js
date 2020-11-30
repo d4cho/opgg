@@ -4,8 +4,6 @@ import PassiveContainer from './PassiveContainer';
 import classes from './ChampionBanner.module.css';
 
 const ChampionBanner = (props) => {
-  console.log(props.id);
-
   const data = require(`../data/SingleChampionData/${props.id}.json`);
 
   const championData = {
@@ -57,8 +55,6 @@ const ChampionBanner = (props) => {
       img: data['data'][props.id]['passive']['image']['full']
     }
   };
-
-  console.log(championData);
 
   return (
     <div className={classes.parent}>

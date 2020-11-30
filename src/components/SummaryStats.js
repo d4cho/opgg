@@ -11,7 +11,6 @@ const SummaryStats = (props) => {
   }
   const reducer = (acc, currVal) => acc + currVal;
   const totalTeamKills = totalTeamKillsArr.reduce(reducer);
-  // console.log(totalTeamKills);
 
   const killParticipation = Math.round(
     ((props.kills + props.assists) / totalTeamKills) * 100

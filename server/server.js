@@ -29,20 +29,17 @@ let config = {
 };
 
 app.get('/summoner/:summonerName', function (req, res) {
-  console.log('now here');
   axios
     .get(
       `https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${req.params.summonerName}?api_key=${RIOT_API_KEY}`,
       config
     )
     .then((response) => {
-      console.log('am i here?');
       const userName = response.data['name'];
       const profileIcon = response.data['profileIconId'];
       const level = response.data['summonerLevel'];
       const accountId = response.data['accountId'];
       const summonerId = response.data['id'];
-      console.log(response);
       axios
         .get(
           `https://na1.api.riotgames.com/lol/match/v4/matchlists/by-account/${accountId}?api_key=${RIOT_API_KEY}`,
@@ -81,7 +78,6 @@ app.get('/summoner/:summonerName', function (req, res) {
               let flexTier = 'UNRANKED';
               let flexRank = '';
               for (const item of response.data) {
-                // console.log(item['queueType']);
                 if (item['queueType'] === 'RANKED_FLEX_SR') {
                   flexTier = item['tier'];
                   flexRank = item['rank'];
@@ -122,8 +118,6 @@ app.get('/summoner/:summonerName', function (req, res) {
 });
 
 app.post('/summoner/:summonerName/matchsummary', function (req, res) {
-  // console.log('yoyoyo', req.body);
-
   axios
     .get(
       `https://na1.api.riotgames.com/lol/match/v4/matches/${req.body.gameId}?api_key=${RIOT_API_KEY}`,
@@ -203,100 +197,13 @@ app.post('/summoner/:summonerName/matchsummary', function (req, res) {
         playerInfo,
         teamInfo
       });
-      // console.log(gameDuration, participantInfo, playerInfo, teamInfo);
     })
     .catch((error) => {
       console.log(error);
     });
-
-  // axios
-  //   .get(
-  //     `https://na1.api.riotgames.com/lol/match/v4/matches/${req.body.gameId}?api_key=${RIOT_API_KEY}`,
-  //     config
-  //   )
-  //   .then((response) => {
-  //     const gameDuration = response.data['gameDuration'];
-  //     const participantIdentities = response.data['participantIdentities'].map(
-  //       (item) => {
-  //         return {
-  //           participantId: item['participantId'],
-  //           summonerName: item['player']['summonerName']
-  //         };
-  //       }
-  //     );
-  //     const participantChampions = response.data['participants'].map((item) => {
-  //       return {
-  //         participantIdCheck: item['participantId'],
-  //         championId: item['championId'],
-  //         kills: item['stats']['kills']
-  //       };
-  //     });
-  //     const participantInfo = [];
-  //     for (let i = 0; i < participantIdentities.length; ++i) {
-  //       participantInfo[i] = {
-  //         ...participantIdentities[i],
-  //         ...participantChampions[i]
-  //       };
-  //     }
-  //     const teamInfo = {
-  //       team1Id: 100,
-  //       team1Kills: [],
-  //       team2Id: 200,
-  //       team2Kills: []
-  //     };
-  //     for (const item of response.data['participants']) {
-  //       if (item['teamId'] === 100) {
-  //         teamInfo.team1Kills.push(item['stats']['kills']);
-  //       } else {
-  //         teamInfo.team2Kills.push(item['stats']['kills']);
-  //       }
-  //     }
-
-  //     const playerInfo = {};
-  //     for (const item of response.data['participants']) {
-  //       if (item['championId'] === req.body.championPlayed) {
-  //         (playerInfo.championId = item['championId']),
-  //           (playerInfo.teamId = item['teamId']),
-  //           (playerInfo.spell1Id = item['spell1Id']),
-  //           (playerInfo.spell2Id = item['spell2Id']),
-  //           (playerInfo.win = item['stats']['win']),
-  //           (playerInfo.item0 = item['stats']['item0']),
-  //           (playerInfo.item1 = item['stats']['item1']),
-  //           (playerInfo.item2 = item['stats']['item2']),
-  //           (playerInfo.item3 = item['stats']['item3']),
-  //           (playerInfo.item4 = item['stats']['item4']),
-  //           (playerInfo.item5 = item['stats']['item5']),
-  //           (playerInfo.item6 = item['stats']['item6']),
-  //           (playerInfo.kills = item['stats']['kills']),
-  //           (playerInfo.deaths = item['stats']['deaths']),
-  //           (playerInfo.assists = item['stats']['assists']),
-  //           (playerInfo.largestMultiKill = item['stats']['largestMultiKill']),
-  //           (playerInfo.totalMinionsKilled =
-  //             item['stats']['totalMinionsKilled']),
-  //           (playerInfo.neutralMinionsKilled =
-  //             item['stats']['neutralMinionsKilled']),
-  //           (playerInfo.champLevel = item['stats']['champLevel']),
-  //           (playerInfo.visionWardsBoughtInGame =
-  //             item['stats']['visionWardsBoughtInGame']);
-  //       }
-  //     }
-  //     const queue = req.body.queue;
-  //     res.status(200).json({
-  //       queue,
-  //       gameDuration,
-  //       participantInfo,
-  //       playerInfo,
-  //       teamInfo
-  //     });
-  //     // console.log(gameDuration, participantInfo, playerInfo, teamInfo);
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-  //   });
 });
 
 app.get('/summoner/:summonerName/matchoverview', function (req, res) {
-  // console.log('gameId', req.query.gameId);
   let gameDuration, teamInfo, participantInfo;
   axios
     .get(
@@ -304,8 +211,6 @@ app.get('/summoner/:summonerName/matchoverview', function (req, res) {
       config
     )
     .then((response) => {
-      // console.log(response);
-
       gameDuration = response.data['gameDuration'];
 
       teamInfo = response.data['teams'].map((item) => {
@@ -378,10 +283,7 @@ app.get('/summoner/:summonerName/matchoverview', function (req, res) {
       return Promise.all(participantRankPromises);
     })
     .then((responses) => {
-      console.log(responses[0].data);
-
       const arr = responses.map((response) => {
-        console.log(response.data);
         if (response.data.length === 0) {
           return {
             tier: 'Unranked',
@@ -404,7 +306,7 @@ app.get('/summoner/:summonerName/matchoverview', function (req, res) {
       res.status(200).json({
         gameDuration,
         teamInfo,
-        participantInfo
+        participantInfo1
       });
     })
 

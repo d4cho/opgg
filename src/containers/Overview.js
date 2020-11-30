@@ -26,7 +26,6 @@ class Overview extends Component {
         }
       )
       .then((response) => {
-        console.log(response);
         this.setState({
           isLoading: false,
           data: response.data
@@ -38,7 +37,6 @@ class Overview extends Component {
   }
 
   render() {
-    console.log(this.state.data);
     if (this.state.isLoading) {
       return (
         <div>
@@ -74,7 +72,6 @@ class Overview extends Component {
     });
 
     const highestDamage = Math.max(...highestDamageArr);
-    console.log(highestDamageArr, highestDamage);
 
     const GameDetailsTeam1 = participantInfoTeam1.map((info) => {
       return (

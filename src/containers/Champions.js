@@ -94,7 +94,6 @@ class Champions extends Component {
   };
 
   render() {
-    console.log(this.state.filteredChampions);
     return (
       <div className={classes.champions}>
         <Filter

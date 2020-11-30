@@ -5,7 +5,6 @@ import TotalGold from './TotalGold';
 import classes from './ObjectivesContainer.module.css';
 
 const ObjectivesContainer = (props) => {
-  console.log(props.participantInfo);
   const participantInfo = [...props.participantInfo];
 
   const team1Kills = [];

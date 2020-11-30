@@ -115,14 +115,12 @@ class MatchSummary extends Component {
     showOverview: false
   };
   componentDidMount() {
-    console.log(this.props.matchInfo);
     axios
       .post(
         `http://localhost:18080/summoner/${this.props.userName}/matchsummary`,
         this.props.matchInfo
       )
       .then((res) => {
-        console.log(res);
         this.setState({
           data: res.data,
           isLoading: false
@@ -140,7 +138,6 @@ class MatchSummary extends Component {
   };
 
   render() {
-    console.log(this.state.showOverview);
     if (this.state.isLoading) {
       return null;
     }

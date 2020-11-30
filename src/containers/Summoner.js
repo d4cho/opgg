@@ -51,13 +51,11 @@ class Summoner extends Component {
   };
 
   getdata = () => {
-    console.log('here');
     axios
       .get(
         `http://localhost:18080/summoner/${this.props.match.params.userName}`
       )
       .then((response) => {
-        console.log('response', response);
         const userName = response.data['userName'];
         const profileIcon = response.data['profileIcon'];
         const level = response.data['level'];
@@ -121,8 +119,6 @@ class Summoner extends Component {
   };
 
   render() {
-    // console.log(championData);
-
     const matchSummary = this.state.matchInfo.map((match) => {
       return (
         <MatchSummary

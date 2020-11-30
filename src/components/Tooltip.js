@@ -2,8 +2,6 @@ import React from 'react';
 import classes from './Tooltip.module.css';
 
 const Tooltip = (props) => {
-  console.log(props.children);
-
   const [name, desc, cd, cost, range] = props.children;
 
   //convert cd array to string

@@ -3,7 +3,6 @@ import ProgressBar from './ProgressBar';
 import classes from './TotalKills.module.css';
 
 const TotalKills = (props) => {
-  console.log(props.winTeam);
   let percentage = 50;
   if (props.winTeam === 1) {
     percentage =

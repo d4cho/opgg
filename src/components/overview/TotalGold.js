@@ -3,7 +3,6 @@ import ProgressBar from './ProgressBar';
 import classes from './TotalGold.module.css';
 
 const TotalGold = (props) => {
-  console.log(props.winTeam);
   let percentage = 50;
   if (props.winTeam === 1) {
     percentage = (props.team1Gold / (props.team1Gold + props.team2Gold)) * 100;
