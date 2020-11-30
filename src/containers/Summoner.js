@@ -133,7 +133,7 @@ class Summoner extends Component {
       return (
         <div className={classes.parent}>
           <Profile
-            img={`/images/profileIcon/${this.state.profileIcon}.png`}
+            img={`/images/profileIcon/21.png`}
             alt={this.state.profileIcon}
             userName={this.state.userName}
             level={this.state.level}

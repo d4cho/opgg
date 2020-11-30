@@ -6,9 +6,8 @@ const Profile = (props) => {
     <div className={classes.parent}>
       <img
         className={classes.img}
-        src={props.img ? props.img : '/images/profileIcon/0.png'}
+        src={props.img ? props.img : '/images/profileIcon/21.png'}
         alt={props.alt}
-        // onError="this.onerror=null;this.src='http://localhost:3000/images/profileIcon/0.png';"
       />
       <div className={classes.name}>{props.userName}</div>
       <div className={classes.level}>{props.level}</div>
