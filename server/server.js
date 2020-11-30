@@ -315,6 +315,18 @@ app.get('/summoner/:summonerName/matchoverview', function (req, res) {
     });
 });
 
+// to serve front end for production mode
+if (process.env.NODE_ENV === 'production') {
+  // set static folder
+  // all js and css files will be read and served from this folder
+  app.use(express.static('../build'));
+
+  // index.html for all page routes
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../build', 'index.html'));
+  });
+}
+
 const port = process.env.PORT || 18080;
 
 app.listen(port, () => console.log(`Server started on port ${port}`));
