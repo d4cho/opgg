@@ -51,8 +51,11 @@ class Summoner extends Component {
   };
 
   getdata = () => {
+    console.log('here');
     axios
-      .get(`http://localhost:8080/summoner/${this.props.match.params.userName}`)
+      .get(
+        `http://localhost:18080/summoner/${this.props.match.params.userName}`
+      )
       .then((response) => {
         console.log('response', response);
         const userName = response.data['userName'];
@@ -143,7 +146,7 @@ class Summoner extends Component {
             championClicked={this.championTabClickedHandler}
           />
           {this.state.summaryTabClicked ? (
-            <>
+            <div>
               <RankedContainer>
                 <RankInfo>
                   {this.state.soloQueueType}
@@ -165,11 +168,7 @@ class Summoner extends Component {
               <div className={classes.matchSummaryContainer}>
                 {matchSummary}
               </div>
-              {/* <MatchSummary
-                userName={this.state.userName}
-                matchInfo={this.state.matchInfo}
-              /> */}
-            </>
+            </div>
           ) : this.state.championTabClicked ? (
             <div>sorry, under construction</div>
           ) : null}

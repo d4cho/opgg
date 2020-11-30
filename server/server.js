@@ -15,12 +15,12 @@ app.get('/', function (req, res) {
 
 // my API stuff
 
-const RIOT_API_KEY = 'RGAPI-308c7128-1eec-4ee9-a293-892b7dc6a76d';
+const RIOT_API_KEY = 'RGAPI-4717bbce-cd41-4fb6-95a3-99cbef705480';
 
 let config = {
   headers: {
     'User-Agent':
-      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36',
+      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36',
     'Accept-Language': 'en-GB,en;q=0.9,en-US;q=0.8,ko;q=0.7',
     'Accept-Charset': 'application/x-www-form-urlencoded; charset=UTF-8',
     Origin: 'https://developer.riotgames.com',
@@ -29,19 +29,20 @@ let config = {
 };
 
 app.get('/summoner/:summonerName', function (req, res) {
-  // console.log(req.params);
+  console.log('now here');
   axios
     .get(
       `https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${req.params.summonerName}?api_key=${RIOT_API_KEY}`,
       config
     )
     .then((response) => {
+      console.log('am i here?');
       const userName = response.data['name'];
       const profileIcon = response.data['profileIconId'];
       const level = response.data['summonerLevel'];
       const accountId = response.data['accountId'];
       const summonerId = response.data['id'];
-      // console.log(response);
+      console.log(response);
       axios
         .get(
           `https://na1.api.riotgames.com/lol/match/v4/matchlists/by-account/${accountId}?api_key=${RIOT_API_KEY}`,
@@ -116,7 +117,7 @@ app.get('/summoner/:summonerName', function (req, res) {
         });
     })
     .catch((error) => {
-      console.log(error);
+      console.log('there is an error', error);
     });
 });
 
@@ -412,4 +413,6 @@ app.get('/summoner/:summonerName/matchoverview', function (req, res) {
     });
 });
 
-app.listen(process.env.PORT || 8080);
+const port = process.env.PORT || 18080;
+
+app.listen(port, () => console.log(`Server started on port ${port}`));

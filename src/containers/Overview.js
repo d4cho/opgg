@@ -18,7 +18,7 @@ class Overview extends Component {
   componentDidMount() {
     axios
       .get(
-        `http://localhost:8080/summoner/${this.props.userName}/matchoverview`,
+        `http://localhost:18080/summoner/${this.props.userName}/matchoverview`,
         {
           params: {
             gameId: this.props.gameId
