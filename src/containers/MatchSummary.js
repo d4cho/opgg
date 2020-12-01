@@ -114,10 +114,17 @@ class MatchSummary extends Component {
     isLoading: true,
     showOverview: false
   };
+
   componentDidMount() {
+    // change host for production mode
+    let host = 'http://localhost:18080/';
+    if (process.env.NODE_ENV === 'production') {
+      host = '/';
+    }
+
     axios
       .post(
-        `http://localhost:18080/summoner/${this.props.userName}/matchsummary`,
+        `${host}summoner/${this.props.userName}/matchsummary`,
         this.props.matchInfo
       )
       .then((res) => {

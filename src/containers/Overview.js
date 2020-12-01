@@ -16,15 +16,18 @@ class Overview extends Component {
   };
 
   componentDidMount() {
+    // change host for production mode
+    let host = 'http://localhost:18080/';
+    if (process.env.NODE_ENV === 'production') {
+      host = '/';
+    }
+
     axios
-      .get(
-        `http://localhost:18080/summoner/${this.props.userName}/matchoverview`,
-        {
-          params: {
-            gameId: this.props.gameId
-          }
+      .get(`${host}summoner/${this.props.userName}/matchoverview`, {
+        params: {
+          gameId: this.props.gameId
         }
-      )
+      })
       .then((response) => {
         this.setState({
           isLoading: false,

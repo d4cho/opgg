@@ -4,6 +4,12 @@ import spellData from '../data/summonerSpellsData';
 import classes from './SummarySpells.module.css';
 
 const SummarySpells = (props) => {
+  // change host for production mode
+  let host = 'http://localhost:3000/';
+  if (process.env.NODE_ENV === 'production') {
+    host = '/';
+  }
+
   const img = championData.find((item) => item.key === props.champion).img;
   const name = championData.find((item) => item.key === props.champion).name;
   const spell1Img = spellData.find((item) => item.key === props.spell1Id).img;
@@ -12,7 +18,7 @@ const SummarySpells = (props) => {
   return (
     <div className={classes.parent}>
       <div className={classes.row}>
-        <a href={`http://localhost:3000/champions/${name}`} target='_blank'>
+        <a href={`${host}champions/${name}`} target='_blank'>
           <img
             src={`/images/portrait/${img}`}
             alt={name}

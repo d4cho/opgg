@@ -51,10 +51,14 @@ class Summoner extends Component {
   };
 
   getdata = () => {
+    // change host for production mode
+    let host = 'http://localhost:18080/';
+    if (process.env.NODE_ENV === 'production') {
+      host = '/';
+    }
+
     axios
-      .get(
-        `http://localhost:18080/summoner/${this.props.match.params.userName}`
-      )
+      .get(`${host}summoner/${this.props.match.params.userName}`)
       .then((response) => {
         const userName = response.data['userName'];
         const profileIcon = response.data['profileIcon'];
