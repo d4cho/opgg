@@ -1,6 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const path = require('path');
 const axios = require('axios');
 const cors = require('cors');
 const app = express();
@@ -8,10 +7,6 @@ const app = express();
 // express static files
 app.use(bodyParser.json());
 app.use(cors());
-app.use(express.static(path.join(__dirname, '..', 'build')));
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
-});
 
 // my API stuff
 
@@ -315,15 +310,17 @@ app.get('/summoner/:summonerName/matchoverview', function (req, res) {
     });
 });
 
+// for deployment
+const path = require('path');
 // to serve front end for production mode
 if (process.env.NODE_ENV === 'production') {
   // set static folder
   // all js and css files will be read and served from this folder
-  app.use(express.static('../build'));
+  app.use(express.static(path.join(__dirname, '..', 'build')));
 
   // index.html for all page routes
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../build', 'index.html'));
+  app.get('/', function (req, res) {
+    res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
   });
 }
 
