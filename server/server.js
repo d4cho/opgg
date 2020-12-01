@@ -301,7 +301,7 @@ app.get('/summoner/:summonerName/matchoverview', function (req, res) {
       res.status(200).json({
         gameDuration,
         teamInfo,
-        participantInfo1
+        participantInfo
       });
     })
 
@@ -319,7 +319,7 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '..', 'build')));
 
   // index.html for all page routes
-  app.get('/', function (req, res) {
+  app.get('*', function (req, res) {
     res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
   });
 }
