@@ -10,7 +10,7 @@ app.use(cors());
 
 // my API stuff
 
-const RIOT_API_KEY = 'RGAPI-4717bbce-cd41-4fb6-95a3-99cbef705480';
+const RIOT_API_KEY = 'RGAPI-3b42c961-79d2-4413-88e4-2f8c6a0490f6';
 
 let config = {
   headers: {
