@@ -124,7 +124,7 @@ class MatchSummary extends Component {
 
     axios
       .post(
-        `${host}summoner/${this.props.userName}/matchsummary`,
+        `${host}api/summoner/${this.props.userName}/matchsummary`,
         this.props.matchInfo
       )
       .then((res) => {

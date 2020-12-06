@@ -28,7 +28,8 @@
     "start": "npm run server",
     "server": "node server/server.js",
     "build": "react-scripts build",
-    "dev": "concurrently \"npm run server\" \"npm run start\"",
+    "start-script": "react-scripts start",
+    "dev": "concurrently \"npm run server\" \"npm run start-script\"",
     "heroku-postbuild": " npm install && npm run build ",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

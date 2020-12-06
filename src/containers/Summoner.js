@@ -58,7 +58,7 @@ class Summoner extends Component {
     }
 
     axios
-      .get(`${host}summoner/${this.props.match.params.userName}`)
+      .get(`${host}api/summoner/${this.props.match.params.userName}`)
       .then((response) => {
         const userName = response.data['userName'];
         const profileIcon = response.data['profileIcon'];

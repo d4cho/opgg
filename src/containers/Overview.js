@@ -23,7 +23,7 @@ class Overview extends Component {
     }
 
     axios
-      .get(`${host}summoner/${this.props.userName}/matchoverview`, {
+      .get(`${host}api/summoner/${this.props.userName}/matchoverview`, {
         params: {
           gameId: this.props.gameId
         }

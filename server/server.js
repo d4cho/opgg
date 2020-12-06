@@ -23,7 +23,7 @@ let config = {
   }
 };
 
-app.get('/summoner/:summonerName', function (req, res) {
+app.get('/api/summoner/:summonerName', function (req, res) {
   axios
     .get(
       `https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${req.params.summonerName}?api_key=${RIOT_API_KEY}`,
@@ -112,7 +112,7 @@ app.get('/summoner/:summonerName', function (req, res) {
     });
 });
 
-app.post('/summoner/:summonerName/matchsummary', function (req, res) {
+app.post('/api/summoner/:summonerName/matchsummary', function (req, res) {
   axios
     .get(
       `https://na1.api.riotgames.com/lol/match/v4/matches/${req.body.gameId}?api_key=${RIOT_API_KEY}`,
@@ -198,7 +198,7 @@ app.post('/summoner/:summonerName/matchsummary', function (req, res) {
     });
 });
 
-app.get('/summoner/:summonerName/matchoverview', function (req, res) {
+app.get('/api/summoner/:summonerName/matchoverview', function (req, res) {
   let gameDuration, teamInfo, participantInfo;
   axios
     .get(
