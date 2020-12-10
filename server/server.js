@@ -10,24 +10,29 @@ app.use(cors());
 
 // my API stuff
 
-const RIOT_API_KEY = 'RGAPI-900c08a7-c125-4c1b-bdd9-ec37e819b02e';
+const RIOT_API_KEY = 'RIOT_API_KEY';
 
-let config = {
+let getConfig = () => ({
   headers: {
     'User-Agent':
       'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36',
     'Accept-Language': 'en-GB,en;q=0.9,en-US;q=0.8,ko;q=0.7',
     'Accept-Charset': 'application/x-www-form-urlencoded; charset=UTF-8',
     Origin: 'https://developer.riotgames.com',
-    'X-Riot-Token': RIOT_API_KEY
+    'X-Riot-Token': app.get(RIOT_API_KEY)
   }
-};
+});
+
+app.post('/api/key', (req, res) => {
+  app.set(RIOT_API_KEY, req.body.key);
+  return res.status(201).end();
+});
 
 app.get('/api/summoner/:summonerName', function (req, res) {
   axios
     .get(
       `https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${req.params.summonerName}?api_key=${RIOT_API_KEY}`,
-      config
+      getConfig()
     )
     .then((response) => {
       const userName = response.data['name'];
@@ -38,7 +43,7 @@ app.get('/api/summoner/:summonerName', function (req, res) {
       axios
         .get(
           `https://na1.api.riotgames.com/lol/match/v4/matchlists/by-account/${accountId}?api_key=${RIOT_API_KEY}`,
-          config
+          getConfig()
         )
         .then((response) => {
           let matchInfo = [];
@@ -59,7 +64,7 @@ app.get('/api/summoner/:summonerName', function (req, res) {
           axios
             .get(
               `https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/${summonerId}?api_key=${RIOT_API_KEY}`,
-              config
+              getConfig()
             )
             .then((response) => {
               let soloLP = 0;
@@ -116,7 +121,7 @@ app.post('/api/summoner/:summonerName/matchsummary', function (req, res) {
   axios
     .get(
       `https://na1.api.riotgames.com/lol/match/v4/matches/${req.body.gameId}?api_key=${RIOT_API_KEY}`,
-      config
+      getConfig()
     )
     .then((response) => {
       const gameDuration = response.data['gameDuration'];
@@ -203,7 +208,7 @@ app.get('/api/summoner/:summonerName/matchoverview', function (req, res) {
   axios
     .get(
       `https://na1.api.riotgames.com/lol/match/v4/matches/${req.query.gameId}?api_key=${RIOT_API_KEY}`,
-      config
+      getConfig()
     )
     .then((response) => {
       gameDuration = response.data['gameDuration'];
@@ -271,7 +276,7 @@ app.get('/api/summoner/:summonerName/matchoverview', function (req, res) {
       for (const info of participantInfo) {
         let getSummonerPromise = axios.get(
           `https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/${info.summonerId}?api_key=${RIOT_API_KEY}`,
-          config
+          getConfig()
         );
         participantRankPromises.push(getSummonerPromise);
       }
