@@ -25,7 +25,7 @@ let getConfig = () => ({
 
 app.post('/api/key', (req, res) => {
   app.set(RIOT_API_KEY, req.body.key);
-  return res.status(201).end();
+  return res.status(201).json({ success: true });
 });
 
 app.get('/api/summoner/:summonerName', function (req, res) {
